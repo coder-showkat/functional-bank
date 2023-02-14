@@ -7,7 +7,7 @@ function toastMessage(msg) {
     div.style.right = '-400px';
     div.style.zIndex = '1000';
     div.style.fontWeight = '600';
-    div.style.background = '#CCE8F4';
+    div.style.background = 'rgba(255, 255, 255, 0.5)';
     div.style.color = '#07588e';
     div.style.transition = 'right .4s ease-in';
     div.style.padding = '.5rem .8rem';
