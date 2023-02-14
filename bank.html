@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Bank</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'roboto': ['Roboto', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        transparent: 'rgba(255, 255, 255, 0.5)'
+                    },
+                    // dropShadow: {
+                    //     transparent: '0 26px 42px rgba(0, 0, 0, 0.9)'
+                    // },
+                    backgroundColor: {
+                        transparent: 'rgba(255, 255, 255, 0.1)',
+                        transparent2: 'rgba(255, 255, 255, 0.3)',
+                        transparent3: 'rgba(255, 255, 255, 0.2)',
+                    },
+                    boxShadow: {
+                        custom: '0 26px 42px rgba(0, 0, 0, 0.1)',
+                        custom2: '0 26px 42px rgba(0, 0, 0, 0.05)'
+                    },
+                    backgroundImage: {
+                        gradient: 'linear-gradient(-45deg, #12c2e9, #c471ed, #f64f59)',
+                    },
+                    animation: {
+                        'loading': 'loading 1s linear infinite',
+                        'bgColor': 'bgChange 3s infinite',
+                    }
+                },
+
+                backgroundSize: {
+                    'forAnim': '200% 200%',
+                },
+                keyframes: {
+                    loading: {
+                        '0%': { transform: 'rotate(0deg)' },
+                        '100%': { transform: 'rotate(360deg)' },
+                    },
+                    bgChange: {
+                        '0%': { backgroundPosition: '0% 50%' },
+                        '50%': { backgroundPosition: '100% 50%' },
+                        '100%': { backgroundPosition: '0% 50%' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient animate-bgColor bg-forAnim font-roboto">
+    <header>
+        <h1 class="text-4xl text-gray-700 text-center mt-4 font-semibold w-3/4 mx-auto">Functional <span
+                class="font-bold text-transparent drop-shadow-lg">Baap-er
+                Bank</span>!!!</h1>
+        <button id="logout"
+            class="block font-medium mx-auto my-4 py-3 px-8 bg-transparent3 shadow-custom text-white hover:bg-transparent2 hover:text-gray-100 ease-in-out rounded-md cursor-pointer duration-300">Logout</button>
+    </header>
+
+    <main>
+        <section>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto p-4 mt-4 w-3/4 md:w-11/12 lg:w-3/4">
+                <div class="bg-transparent shadow-custom py-6 px-8 rounded-md text-gray-600">
+                    <h4 class="text-3xl font-medium mb-2">Deposit</h4>
+                    <h3 class="text-4xl font-semibold">$<span id="ttl-deposit">0</span></h3>
+                </div>
+                <div class="bg-transparent shadow-custom py-6 px-8 rounded-md text-gray-600">
+                    <h4 class="text-3xl font-medium mb-2">Withdraw</h4>
+                    <h3 class="text-4xl font-semibold">$<span id="ttl-withdraw">0</span></h3>
+                </div>
+                <div class="bg-transparent shadow-custom px-8 py-6 rounded-md text-gray-600">
+                    <h4 class="text-3xl font-medium mb-2">Balance</h4>
+                    <h3 class="text-4xl font-semibold">$<span id="ttl-balance">1240</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto p-4 mt-4 w-11/12 lg:w-3/4">
+                <div class="bg-transparent shadow-custom px-6 py-4 rounded-md text-gray-600">
+                    <h3 class="text-3xl mb-3 font-semibold">Your Deposit</h3>
+                    <form class="deposit-form px-4">
+                        <input type="text" id="inp-deposit"
+                            class="block border-1 border-gray-200 py-2 px-3 bg-transparent2 rounded-sm w-full mb-4 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder:text-slate-500 text-gray-600"
+                            autocomplete="off" placeholder="$ Amount you want to deposit">
+                        <input type="submit"
+                            class="block px-8 py-3 font-medium bg-transparent3 shadow-custom text-white hover:bg-transparent2 rounded-md cursor-pointer duration-300"
+                            value="Deposit">
+                    </form>
+                </div>
+                <div class="bg-transparent shadow-custom px-6 py-4 rounded-md text-gray-600">
+                    <h3 class="text-3xl mb-3 font-semibold">Your Withdraw</h3>
+                    <form class="withdraw-form px-4">
+                        <input type="text" id="inp-withdraw"
+                            class="block border-1 border-gray-200 py-2 px-3 bg-transparent2 rounded-sm w-full mb-4 focus:outline-none focus:ring-2 focus:ring-gray-300 placeholder:text-slate-500 text-gray-600"
+                            autocomplete="off" placeholder="$ Amount you want to withdraw">
+                        <input type="submit"
+                            class="block px-8 py-3 font-medium bg-transparent3 shadow-custom text-white hover:bg-transparent2 rounded-md cursor-pointer duration-300"
+                            value="Withdraw">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-4 mb-1">
+        <p class="text-center px-8">All rights reserved copyright@2023 Showkat Ali Sam</p>
+    </footer>
+
+
+    <script src="./js/utilities.js"></script>
+    <script src="./js/deposit.js"></script>
+    <script src="./js/withdraw.js"></script>
+</body>
+
+</html>
